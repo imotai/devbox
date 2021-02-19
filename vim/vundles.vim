@@ -14,17 +14,14 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ervandew/supertab'
 
 " snippets
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-" snipmate dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
 
 " Fast navigation
 Plugin 'jwhitley/vim-matchit'
 Plugin 'Lokaltog/vim-easymotion'
 
 " Fast editing
+
+Plugin 'aperezdc/vim-template'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
@@ -38,7 +35,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'scrooloose/syntastic'
 Plugin 'bronson/vim-trailing-whitespace'
 
 " Other Utils
@@ -54,9 +50,6 @@ Plugin 'fatih/vim-go'
 
 " FPs
 Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'wlangstroth/vim-racket'
-" Plugin 'vim-scripts/VimClojure'
-" Plugin 'rosstimson/scala-vim-support'
 
 " Color Schemes
 Plugin 'tomasr/molokai'
