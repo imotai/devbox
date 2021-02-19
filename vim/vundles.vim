@@ -21,7 +21,7 @@ Plugin 'Lokaltog/vim-easymotion'
 
 " Fast editing
 
-Plugin 'aperezdc/vim-template'
+Plugin 'imotai/vim-template'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
