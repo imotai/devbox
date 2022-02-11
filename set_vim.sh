@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 mv ~/.vim ~/.vim.orig
 mv ~/.vimrc ~/.vimrc.orig
 cp -rf vim ~/.vim
