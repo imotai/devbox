@@ -39,5 +39,5 @@ download()
 mkdir -p "$DOWNLOAD_DIR"
 pushd "$DOWNLOAD_DIR"
 echo -e "${GREEN}downloading source into $DOWNLOAD_DIR${NC}"
-less $LIBRARY_CSV | while IFS="," read -r url pkg; do download $url $pkg; done
+less "$LIBRARY_CSV" | while IFS="," read -r url pkg; do download "$url" "$pkg"; done
 popd
