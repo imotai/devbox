@@ -323,7 +323,7 @@ if [ -f "zetasql_succ" ]; then
     echo "zetasql_succ"
 else
     echo "installing zetasql...."
-    wget https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
+    curl -SL -o libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     pushd libzetasql-0.2.6
     cp -rf include/* $DEPS_PREFIX/include/
