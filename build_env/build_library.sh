@@ -291,21 +291,6 @@ else
     echo "install yaml-cpp done"
 fi
 
-if [ -f "sqlite_succ" ]; then
-	echo "sqlite installed"
-else
-    echo "installing sqlite..."
-	unzip sqlite-*.zip
-	pushd sqlite-version-3.32.3
-	mkdir -p build
-	cd build
-	../configure --prefix="$DEPS_PREFIX"
-	make -j"$(nproc)" && make install
-	popd
-	touch sqlite_succ
-    echo "install sqlite done"
-fi
-
 if [ -f "llvm_succ" ]; then
 	echo "llvm_exist"
 else
