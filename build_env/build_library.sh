@@ -313,7 +313,7 @@ else
 	tar -zxf boost_1_69_0.tar.gz
 	pushd boost_1_69_0
 	./bootstrap.sh
-	./b2 link=static cxxflags=-fPIC cflags=-fPIC release install --prefix="$DEPS_PREFIX"
+	./b2 --without-python link=static cxxflags=-fPIC cflags=-fPIC release install --prefix="$DEPS_PREFIX"
 	popd
 	touch boost_succ
     echo "install boost done"
