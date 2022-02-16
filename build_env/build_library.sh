@@ -51,10 +51,12 @@ fi
 
 pushd "$DEPS_SOURCE"
 
+echo "installing cmake ...."
 # install cmake
-tar xzf cmake-3.19.*
+tar xzf cmake-3.19.7-Linux-x86_64.tar.gz
 pushd cmake-3.19.7-Linux-x86_64
 find . -type f -exec install -D -m 755 {} /usr/local/{} \; > /dev/null
+echo "install cmake done"
 popd
 
 if [ ! -f gtest_succ ]; then
@@ -66,7 +68,6 @@ if [ ! -f gtest_succ ]; then
 	make "-j$(nproc)"
 	make install
 	popd
-
 	touch gtest_succ
 	echo "install gtest done"
 fi
@@ -202,6 +203,7 @@ fi
 if [ -f "brpc_succ" ]; then
 	echo "brpc exist"
 else
+    echo "installing brpc..."
 	unzip incubator-brpc.zip
 	pushd incubator-brpc-*
 	sh config_brpc.sh --with-glog --headers="$DEPS_PREFIX/include" --libs="$DEPS_PREFIX/lib"
@@ -218,6 +220,7 @@ if [ -f "zk_succ" ]
 then
     echo "zk exist"
 else
+    echo "installing zookeeper..."
     tar -zxf apache-zookeeper-3.4.14.tar.gz
     pushd zookeeper-3.4.14/zookeeper-client/zookeeper-client-c
     autoreconf -if
@@ -232,17 +235,20 @@ fi
 if [ -f "bison_succ" ]; then
 	echo "bison exist"
 else
+    echo "installing bison...."
 	tar zxf bison-3.4.tar.gz
 	pushd bison-3.4
 	./configure --prefix="$DEPS_PREFIX"
 	make install
 	popd
 	touch bison_succ
+    echo "install bison done"
 fi
 
 if [ -f "benchmark_succ" ]; then
 	echo "benchmark exist"
 else
+    echo "installing benchmark...."
 	tar zxf v1.5.0.tar.gz
 	pushd benchmark-1.5.0
 	mkdir -p build
@@ -252,11 +258,13 @@ else
 	make install
 	popd
 	touch benchmark_succ
+    echo "install benchmark done"
 fi
 
 if [ -f "swig_succ" ]; then
 	echo "swig exist"
 else
+    echo "installing swig ...."
 	tar -zxf swig-4.0.1.tar.gz
 	pushd swig-4.0.1
 	./autogen.sh
@@ -265,11 +273,13 @@ else
 	make install
 	popd
 	touch swig_succ
+    echo "install swig done"
 fi
 
 if [ -f "yaml_succ" ]; then
 	echo "yaml-cpp installed"
 else
+    echo "installing yaml-cpp...."
 	tar -zxf yaml-cpp-0.6.3.tar.gz
 	pushd yaml-cpp-yaml-cpp-0.6.3
 	mkdir -p build
@@ -279,11 +289,13 @@ else
 	make install
 	popd
 	touch yaml_succ
+    echo "install yaml-cpp done"
 fi
 
 if [ -f "sqlite_succ" ]; then
 	echo "sqlite installed"
 else
+    echo "installing sqlite..."
 	unzip sqlite-*.zip
 	pushd sqlite-version-3.32.3
 	mkdir -p build
@@ -292,11 +304,13 @@ else
 	make -j"$(nproc)" && make install
 	popd
 	touch sqlite_succ
+    echo "install sqlite done"
 fi
 
 if [ -f "llvm_succ" ]; then
 	echo "llvm_exist"
 else
+    echo "installing llvm...."
 	tar xf llvm-9.0.0.src.tar.xz
 	pushd llvm-9.0.0.src
 	mkdir -p build && cd build
@@ -305,22 +319,26 @@ else
 	make install
 	popd
 	touch llvm_succ
+    echo "install llvm done"
 fi
 
 if [ -f "boost_succ" ]; then
 	echo "boost exist"
 else
+    echo "installing boost...."
 	tar -zxf boost_1_69_0.tar.gz
 	pushd boost_1_69_0
 	./bootstrap.sh
 	./b2 link=static cxxflags=-fPIC cflags=-fPIC release install --prefix="$DEPS_PREFIX"
 	popd
 	touch boost_succ
+    echo "install boost done"
 fi
 
-if [ -f "zetasql_succ"]; then
+if [ -f "zetasql_succ" ]; then
     echo "zetasql_succ"
 else
+    echo "installing zetasql...."
     wget https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     pushd libzetasql-0.2.6
@@ -328,6 +346,7 @@ else
     cp -rf lib/* $DEPS_CONFIG/lib/
     popd
     touch zetasql_succ
+    echo "install zetasql done"
 fi
 
 # install maven
