@@ -47,6 +47,7 @@ RUN yum install -y gettext byacc xz tcl cppunit-devel && \
 WORKDIR /depends
 
 COPY --chown=root:root *.sh ./
+COPY --chown=root:root *.csv ./
 
 RUN bash download_source.sh
 
