@@ -1,6 +1,6 @@
 # what's devbox
 
-devbox helps you to initialize c++ development enviroment quickly
+devbox helps you to initialize c++ development enviroment in minutes
 
 ## 1 
 
