@@ -51,7 +51,7 @@ COPY --chown=root:root *.csv ./
 
 RUN bash download_source.sh
 
-RUN bash build_libray.sh
+RUN bash build_library.sh
 
 RUN tar cvzf thirdparty.tar.gz thirdparty/
 

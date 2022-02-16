@@ -127,7 +127,6 @@ else
 	make "-j$(nproc)"
 	make install
 	popd
-
 	touch gflags_succ
 	echo "install gflags done"
 fi
