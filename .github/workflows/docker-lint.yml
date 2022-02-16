@@ -1,0 +1,31 @@
+name: lint
+
+on: pull_request
+
+jobs:
+  hadolintOnPr:
+    name: hadolint on pr
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: hadolint
+      uses: reviewdog/action-hadolint@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        level: info
+        filter_mode: diff_context
+        reporter: github-pr-review # Default is github-pr-check
+
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: shellcheck
+      uses: reviewdog/action-shellcheck@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
+        path: "."
+        pattern: "*.sh"
+        exclude: "./.git/*"
