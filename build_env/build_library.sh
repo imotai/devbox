@@ -104,7 +104,7 @@ if [ -f "protobuf_succ" ]; then
 else
 	echo "start install protobuf ..."
 	tar zxf protobuf-3.6.1.3.tar.gz
-	pushd protobuf-3.6.1.3.tar.gz
+	pushd protobuf-3.6.1.3
 	./autogen.sh && ./configure $DEPS_CONFIG CPPFLAGS=-I${DEPS_PREFIX}/include LDFLAGS=-L${DEPS_PREFIX}/lib  -disable-shared --with-pic
 	make -j"$(nproc)"
 	make install
