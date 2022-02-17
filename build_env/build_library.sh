@@ -103,10 +103,9 @@ if [ -f "protobuf_succ" ]; then
 	echo "protobuf exist"
 else
 	echo "start install protobuf ..."
-	tar zxf protobuf-2.6.1.tar.gz
-
-	pushd protobuf-2.6.1
-	./configure $DEPS_CONFIG CPPFLAGS=-I${DEPS_PREFIX}/include LDFLAGS=-L${DEPS_PREFIX}/lib
+	tar zxf protobuf-3.19.4.tar.gz
+	pushd protobuf-3.19.4
+	./autogen.sh && ./configure $DEPS_CONFIG CPPFLAGS=-I${DEPS_PREFIX}/include LDFLAGS=-L${DEPS_PREFIX}/lib  -disable-shared --with-pic
 	make -j"$(nproc)"
 	make install
 	popd
