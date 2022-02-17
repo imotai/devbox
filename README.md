@@ -1,8 +1,8 @@
 # what's devbox
 
-devbox helps you to initialize c++ development enviroment in minutes
+devbox helps you to initialize or recover c++ development enviroment in minutes
 
-## 1 
+## First 
 
 modify env.sh to your github name and email
 
@@ -11,7 +11,7 @@ USER_NAME="your github name"
 USER_EMAIL="your github emal"
 ```
 
-## 2
+## Second
 
 use `set_env_ubuntu.sh` to complete following steps
 
@@ -22,7 +22,22 @@ use `set_env_ubuntu.sh` to complete following steps
 
 `Note` You must run `git config --global user.signingkey $YOUR_GPG_KEY` manually
 
-## 3
+## Third
 
 use docker image to compile your c++ project
+
+### Initialize Docker 
+
+```
+cd 'Your Project Dir'
+docker run -v `PWD`:/'Your Project DIR'  --name devbox -dt ghcr.io/imotai/centos7_gcc7_build_env:0.0.1 bash
+# enter container
+docker run -it devbox bash
+
+# tar the thirdpary
+cd /depends && tar -zxvf thirdpary.tar.gz
+cd /'Your Project DIR' && ln -sf /depends/thirdpary  thirdpary
+# add thirdparty to your cmake `CMAKE_PREFIX_PATH`
+```
+
 
