@@ -343,9 +343,6 @@ else
     echo "install zetasql done"
 fi
 
-# install maven
-tar xzf apache-maven-3.6.3-bin.tar.gz
-mv apache-maven-3.6.3 "/opt/maven"
 
 # Remove dynamic library files for static link
 find /depends/thirdparty/lib/ -name "lib*so*" | grep -v "libRemarks" | grep -v "libLTO" | xargs rm

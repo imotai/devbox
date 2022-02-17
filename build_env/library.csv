@@ -14,7 +14,6 @@ https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.6.3.tar.gz,yaml-
 https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz,llvm-9.0.0.src.tar.xz
 https://boostorg.jfrog.io/artifactory/main/release/1.69.0/source/boost_1_69_0.tar.gz,boost_1_69_0.tar.gz
 https://github.com/4paradigm/incubator-brpc/archive/4f69bc0c04abc0734962722ba43aecb4dd7a5dea.zip,incubator-brpc.zip
-https://mirrors.ocf.berkeley.edu/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz,apache-maven-3.6.3-bin.tar.gz
 https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.rpm,scala-2.12.8.rpm
 https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz,apache-zookeeper-3.4.14.tar.gz
 https://github.com/google/benchmark/archive/refs/tags/v1.5.0.tar.gz,v1.5.0.tar.gz
