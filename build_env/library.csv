@@ -19,3 +19,4 @@ https://mirrors.ocf.berkeley.edu/apache/maven/maven-3/3.6.3/binaries/apache-mave
 https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.rpm,scala-2.12.8.rpm
 https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz,apache-zookeeper-3.4.14.tar.gz
 https://github.com/google/benchmark/archive/refs/tags/v1.5.0.tar.gz,v1.5.0.tar.gz
+https://github.com/abseil/abseil-cpp/archive/a50ae369a30f99f79d7559002aba3413dac1bd48.tar.gz,a50ae369a30f99f79d7559002aba3413dac1bd48.tar.gz
