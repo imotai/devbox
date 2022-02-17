@@ -327,7 +327,7 @@ else
     tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     pushd libzetasql-0.2.6
     cp -rf include/* $DEPS_PREFIX/include/
-    cp -rf lib/* $DEPS_CONFIG/lib/
+    cp -rf lib/* $DEPS_PREFIX/lib/
     popd
     touch zetasql_succ
     echo "install zetasql done"
