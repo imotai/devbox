@@ -1,0 +1,51 @@
+name: Docker
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+      - stable
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  IMAGE_NAME: centos7_gcc7_build_env
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: cd build_env && docker build --no-cache . --file Dockerfile --tag $IMAGE_NAME
+      - name: Log into registry
+        if: github.event_name == 'push'
+        run: echo "${{ secrets.PUSH_TOKEN}}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Push image
+        if: github.event_name == 'push'
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
