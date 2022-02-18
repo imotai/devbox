@@ -72,17 +72,7 @@ if [ ! -f gtest_succ ]; then
 	echo "install gtest done"
 fi
 
-if [ ! -f "absl_succ" ]; then
-	echo "installing gtest ...."
-	tar xzf a50ae369a30f99f79d7559002aba3413dac1bd48.tar.gz
-	pushd abseil-cpp-a50ae369a30f99f79d7559002aba3413dac1bd48
-	cmake -DCMAKE_INSTALL_PREFIX="$DEPS_PREFIX" -DCMAKE_CXX_FLAGS=-fPIC -DABSL_ENABLE_INSTALL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DABSL_USE_GOOGLETEST_HEAD=OFF  -DCMAKE_POSITION_INDEPENDENT_CODE=ON 
-	make "-j$(nproc)"
-	make install
-	popd
-	touch absl_succ
-	echo "install absl done"
-fi
+
 
 if [ -f "zlib_succ" ]; then
 	echo "zlib exist"
@@ -139,6 +129,18 @@ else
 	popd
 	touch gflags_succ
 	echo "install gflags done"
+fi
+
+if [ ! -f "absl_succ" ]; then
+	echo "installing gtest ...."
+	tar xzf a50ae369a30f99f79d7559002aba3413dac1bd48.tar.gz
+	pushd abseil-cpp-a50ae369a30f99f79d7559002aba3413dac1bd48
+	cmake -DCMAKE_INSTALL_PREFIX="$DEPS_PREFIX" -DCMAKE_CXX_FLAGS=-fPIC -DABSL_ENABLE_INSTALL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DABSL_USE_GOOGLETEST_HEAD=OFF  -DCMAKE_POSITION_INDEPENDENT_CODE=ON 
+	make "-j$(nproc)"
+	make install
+	popd
+	touch absl_succ
+	echo "install absl done"
 fi
 
 if [ -f "unwind_succ" ]; then
