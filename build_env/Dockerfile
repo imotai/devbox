@@ -68,7 +68,6 @@ RUN rpm -i scala-2.12.8.rpm && rm ./*.rpm
 # hadolint ignore=DL3010
 COPY --from=builder /depends/thirdparty.tar.gz /depends/
 COPY --from=builder /depends/thirdsrc/zookeeper-3.4.14/ /depends/thirdsrc/zookeeper-3.4.14/
-COPY --from=builder /opt/maven/ /opt/maven/
 
 RUN yum install -y rh-python38-python-wheel && yum clean all
 
