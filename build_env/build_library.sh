@@ -72,6 +72,19 @@ if [ ! -f gtest_succ ]; then
 	echo "install gtest done"
 fi
 
+if [ -f "zetasql_succ" ]; then
+    echo "zetasql_succ"
+else
+    echo "installing zetasql...."
+    curl -SL -o libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
+    tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
+    pushd libzetasql-0.2.6
+    cp -rf include/* $DEPS_PREFIX/include/
+    cp -rf lib/* $DEPS_PREFIX/lib/
+    popd
+    touch zetasql_succ
+    echo "install zetasql done"
+fi
 
 
 if [ -f "zlib_succ" ]; then
@@ -331,19 +344,7 @@ else
     echo "install boost done"
 fi
 
-if [ -f "zetasql_succ" ]; then
-    echo "zetasql_succ"
-else
-    echo "installing zetasql...."
-    curl -SL -o libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
-    tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
-    pushd libzetasql-0.2.6
-    cp -rf include/* $DEPS_PREFIX/include/
-    cp -rf lib/* $DEPS_PREFIX/lib/
-    popd
-    touch zetasql_succ
-    echo "install zetasql done"
-fi
+
 
 
 # Remove dynamic library files for static link
