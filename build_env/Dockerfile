@@ -53,7 +53,7 @@ RUN bash download_source.sh
 
 RUN bash build_library.sh
 RUN ls -l thirdparty/lib64 | grep flags
-RUN tar cvzf thirdparty.tar.gz thirdparty/
+RUN tar czf thirdparty.tar.gz thirdparty/
 
 FROM base
 
