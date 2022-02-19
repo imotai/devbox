@@ -77,7 +77,7 @@ if [ -f "zetasql_succ" ]; then
 else
     echo "installing zetasql...."
     curl -SL -o libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz https://github.com/4paradigm/zetasql/releases/download/v0.2.6/libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
-    tar -zxvf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
+    tar -zxf libzetasql-0.2.6-linux-gnu-x86_64-centos.tar.gz
     pushd libzetasql-0.2.6
     cp -rf include/* $DEPS_PREFIX/include/
     cp -rf lib/* $DEPS_PREFIX/lib/
@@ -151,6 +151,7 @@ if [ ! -f "absl_succ" ]; then
 	cmake -DCMAKE_INSTALL_PREFIX="$DEPS_PREFIX" -DCMAKE_CXX_FLAGS=-fPIC -DABSL_ENABLE_INSTALL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DABSL_USE_GOOGLETEST_HEAD=OFF  -DCMAKE_POSITION_INDEPENDENT_CODE=ON 
 	make "-j$(nproc)"
 	make install
+    cp absl/flags/libabsl_flags_private_handle_accessor.a ${DEPS_PREFIX}/lib64/
 	popd
 	touch absl_succ
 	echo "install absl done"
