@@ -8,4 +8,6 @@ addgnupghome "$USER_NAME"
 gpg --full-generate-key
 gpg --export --armor "$USER_EMAIL"
 git config --global commit.gpgsign true
-echo "export GPG_TTY=\$(tty)" > ~/.bashrc
+echo "export GPG_TTY=\$(tty)" >> ~/.bashrc
+echo "pinentry-program /usr/bin/pinentry-tty" >> ~/.gnupg/gpg-agent.conf
+gpg-connect-agent reloadagent /bye
