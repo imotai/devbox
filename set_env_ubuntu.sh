@@ -10,4 +10,5 @@ gpg --export --armor "$USER_EMAIL"
 git config --global commit.gpgsign true
 echo "export GPG_TTY=\$(tty)" >> ~/.bashrc
 echo "pinentry-program /usr/bin/pinentry-tty" >> ~/.gnupg/gpg-agent.conf
+sudo update-alternatives --config pinentry
 gpg-connect-agent reloadagent /bye
