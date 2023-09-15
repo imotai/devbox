@@ -37,7 +37,8 @@ docker run -it devbox bash
 # tar the thirdpary
 cd /depends && tar -zxvf thirdpary.tar.gz
 cd /'Your Project DIR' && ln -sf /depends/thirdpary  thirdpary
-# add thirdparty to your cmake `CMAKE_PREFIX_PATH`
-```
 
+# add thirdparty to your cmake `CMAKE_PREFIX_PATH`
+
+```
 
