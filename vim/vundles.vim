@@ -27,11 +27,6 @@ Plugin 'nvie/vim-togglemouse'
 " Syntax/Indent for language enhancement
 " markup language
 Plugin 'tpope/vim-markdown'
-" Plugin 'timcharper/textile.vim'
-" Golang
-Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
-
 " FPs
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ryanoasis/vim-devicons'
